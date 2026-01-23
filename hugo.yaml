@@ -4,6 +4,11 @@ title: Aron's Notes
 theme: minimal
 buildFuture: true
 
+outputs:
+  home:
+    - HTML
+    - JSON
+
 taxonomies:
   tag: tags
 
