@@ -19,22 +19,20 @@
     <div class="progress-bar" id="progress"></div>
     <div class="container">
         <header class="site-header">
-            <nav class="site-nav">
-                <a href="/" class="site-title">Aron Vallinder</a>
-                <div class="nav-links">
-                    <a href="/">About</a>
-                    <a href="/papers/">Papers</a>
-                    <a href="/blog/">Blog</a>
-                </div>
-            </nav>
-            <div class="header-controls">
-                <div class="search-wrapper">
-                    <input type="text" id="search-input" placeholder="search..." autocomplete="off">
-                    <div id="search-results"></div>
-                </div>
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">[dark]</button>
+            <a href="/" class="site-title">Aron Vallinder</a>
+            <div class="search-wrapper">
+                <input type="text" id="search-input" placeholder="search..." autocomplete="off">
+                <div id="search-results"></div>
             </div>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">[dark]</button>
         </header>
+        <nav class="site-nav">
+            <div class="nav-links">
+                <a href="/">About</a>
+                <a href="/papers/">Papers</a>
+                <a href="/blog/">Blog</a>
+            </div>
+        </nav>
         <main>
             {{ block "main" . }}{{ end }}
         </main>
