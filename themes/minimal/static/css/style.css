@@ -510,7 +510,7 @@ article header h1 a:hover {
         box-shadow: none;
     }
 
-    .content > p:first-of-type::first-letter {
+    .blog-post .content > p:first-of-type::first-letter {
         font-size: 3em;
     }
 

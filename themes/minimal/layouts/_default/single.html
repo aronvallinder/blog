@@ -1,10 +1,13 @@
 {{ define "main" }}
-<article class="blog-post">
+{{ $isBlogPost := eq .Section "blog" }}
+<article{{ if $isBlogPost }} class="blog-post"{{ end }}>
     <header>
+        {{ if $isBlogPost }}
         <div class="post-meta">
             <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
             <span class="reading-time">{{ math.Round (div (countwords .Content) 200.0) }} min read</span>
         </div>
+        {{ end }}
         <h1>{{ .Title }}</h1>
         {{ with .Params.tags }}
         <div class="tags">
@@ -16,6 +19,7 @@
         {{ .Content }}
     </div>
 
+    {{ if $isBlogPost }}
     {{ $related := .Site.RegularPages.Related . | first 3 }}
     {{ with $related }}
     <div class="related-posts">
@@ -29,7 +33,8 @@
     {{ end }}
 
     <footer class="post-footer">
-        <a href="/">← All posts</a>
+        <a href="/blog/">← All posts</a>
     </footer>
+    {{ end }}
 </article>
 {{ end }}
