@@ -13,16 +13,6 @@
     --border: #e5e5e5;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg: #1e1e1e;
-        --text: #dadada;
-        --text-muted: #a3a3a3;
-        --link: hsl(var(--accent-h), 80%, 60%);
-        --link-hover: hsl(var(--accent-h), 80%, 70%);
-        --border: #363636;
-    }
-}
 
 * {
     margin: 0;
@@ -231,11 +221,6 @@ em {
     text-decoration: underline;
 }
 
-@media (prefers-color-scheme: dark) {
-    code, pre {
-        background: rgba(255,255,255,0.05);
-    }
-}
 
 @media (max-width: 600px) {
     body {
