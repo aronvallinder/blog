@@ -2,9 +2,7 @@
 title: "Papers"
 ---
 
----
-publish: "true"
----
+
 - [Cultural Evolution of Cooperation Among LLM Agents](https://arxiv.org/abs/2412.10270)
 	Preprint (w/ Edward Hughes)
 - [Longtermism and Cultural Evolution](https://vallinder.se/Longtermism%20and%20Cultural%20Evolution.pdf).  
