@@ -1,19 +1,25 @@
 #!/bin/bash
 # Builds Hugo site from Obsidian content and optionally deploys
 
-OBSIDIAN_MUSINGS="/Users/aron/Obsidian/Notes/Musings"
+OBSIDIAN_WEBSITE="/Users/aron/Obsidian/Notes/Website"
 HUGO_DIR="/Users/aron/blog"
-CONTENT_DIR="$HUGO_DIR/content/musings"
+POSTS_DIR="$HUGO_DIR/content/musings"
+PAGES_DIR="$HUGO_DIR/content"
 
-# Clean and recreate content directory
-rm -rf "$CONTENT_DIR"
-mkdir -p "$CONTENT_DIR"
+# Clean and recreate posts directory
+rm -rf "$POSTS_DIR"
+mkdir -p "$POSTS_DIR"
 
-# Process each markdown file
-for file in "$OBSIDIAN_MUSINGS"/*.md; do
+# Process blog posts (all .md files in Website/, excluding Pages/ subfolder)
+for file in "$OBSIDIAN_WEBSITE"/*.md; do
     if [[ -f "$file" ]]; then
         filename=$(basename "$file")
         title="${filename%.md}"
+
+        # Skip utility files
+        if [[ "$filename" == "Musings.md" ]]; then
+            continue
+        fi
 
         # Get modification date
         mod_date=$(stat -f "%Sm" -t "%Y-%m-%dT%H:%M:%S" "$file")
@@ -27,18 +33,69 @@ for file in "$OBSIDIAN_MUSINGS"/*.md; do
             echo ""
             # Convert wiki-links [[text]] or [[link|text]] to plain text or markdown links
             sed -E 's/\[\[([^]|]+)\|([^]]+)\]\]/\2/g; s/\[\[([^]]+)\]\]/\1/g' "$file"
-        } > "$CONTENT_DIR/$filename"
+        } > "$POSTS_DIR/$filename"
 
-        echo "Processed: $title"
+        echo "Processed post: $title"
     fi
 done
 
 # Create musings index page
-cat > "$CONTENT_DIR/_index.md" << 'EOF'
+cat > "$POSTS_DIR/_index.md" << 'EOF'
 ---
 title: "Musings"
 ---
 EOF
+
+# Process static pages from Pages/ subfolder
+for file in "$OBSIDIAN_WEBSITE/Pages"/*.md; do
+    if [[ -f "$file" ]]; then
+        filename=$(basename "$file")
+        title="${filename%.md}"
+
+        # Map filenames to URL slugs
+        case "$filename" in
+            "about.md")
+                output_file="$PAGES_DIR/_index.md"
+                page_title="Aron Vallinder"
+                ;;
+            "Current projects.md")
+                output_file="$PAGES_DIR/projects.md"
+                page_title="Current Projects"
+                ;;
+            "Questions on my mind.md")
+                output_file="$PAGES_DIR/questions.md"
+                page_title="Questions on My Mind"
+                ;;
+            "Papers I've written.md")
+                output_file="$PAGES_DIR/papers.md"
+                page_title="Papers"
+                ;;
+            *)
+                # Default: use filename as slug
+                slug=$(echo "$title" | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
+                output_file="$PAGES_DIR/$slug.md"
+                page_title="$title"
+                ;;
+        esac
+
+        # Create Hugo-compatible file with frontmatter
+        {
+            echo "---"
+            echo "title: \"$page_title\""
+            echo "---"
+            echo ""
+            # Convert wiki-links to proper URLs
+            cat "$file" | \
+                sed 's/\[\[Current projects\]\]/[Projects](\/projects\/)/g' | \
+                sed 's/\[\[Questions on my mind\]\]/[Questions on my mind](\/questions\/)/g' | \
+                sed 's/\[\[Musings\]\]/[Musings](\/musings\/)/g' | \
+                sed "s/\[\[Papers I've written\]\]/[Papers](\/papers\/)/g" | \
+                sed -E 's/\[\[([^]|]+)\|([^]]+)\]\]/\2/g; s/\[\[([^]]+)\]\]/\1/g'
+        } > "$output_file"
+
+        echo "Processed page: $page_title"
+    fi
+done
 
 echo ""
 echo "Build complete."
@@ -50,7 +107,7 @@ if [[ "$1" == "--deploy" ]]; then
     if git diff --cached --quiet; then
         echo "No changes to deploy."
     else
-        git commit -m "Update musings $(date +%Y-%m-%d)"
+        git commit -m "Update content $(date +%Y-%m-%d)"
         git push
         echo "Deployed to GitHub."
     fi
