@@ -89,11 +89,70 @@ body {
     border-radius: 2px;
 }
 
-.site-tagline {
+.nav-links {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
     color: var(--text-muted);
     font-size: 0.95rem;
-    margin-top: 0.75rem;
-    line-height: 1.5;
+    background-image: none;
+}
+
+.nav-links a:hover {
+    color: var(--link);
+}
+
+/* About/homepage content */
+.about-content {
+    margin-bottom: 3rem;
+}
+
+.about-content p:first-of-type::first-letter {
+    font-family: 'Spectral', serif;
+    font-size: 3.5em;
+    float: left;
+    line-height: 0.8;
+    margin-right: 0.1em;
+    margin-top: 0.1em;
+    color: var(--link);
+}
+
+.post-excerpt {
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+.view-all {
+    margin-top: 2rem;
+}
+
+.view-all a {
+    background-image: none;
+}
+
+.view-all a:hover {
+    text-decoration: underline;
+}
+
+.home-post h3 {
+    font-family: 'Spectral', serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+.home-post h3 a {
+    color: var(--text);
+    background-image: none;
+}
+
+.home-post h3 a:hover {
+    color: var(--link);
 }
 
 h1 {

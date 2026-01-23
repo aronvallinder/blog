@@ -10,8 +10,13 @@
     <div class="progress-bar" id="progress"></div>
     <div class="container">
         <nav class="site-nav">
-            <a href="/" class="site-title">{{ .Site.Title }}</a>
-            <p class="site-tagline">Notes on AI, cooperation, and cultural evolution</p>
+            <a href="/" class="site-title">Aron Vallinder</a>
+            <div class="nav-links">
+                <a href="/musings/">Musings</a>
+                <a href="/papers/">Papers</a>
+                <a href="/projects/">Projects</a>
+                <a href="/questions/">Questions</a>
+            </div>
         </nav>
         <main>
             {{ block "main" . }}{{ end }}
@@ -19,7 +24,6 @@
         <footer class="site-footer">
             <div class="footer-links">
                 <a href="mailto:vallinder@gmail.com">Email</a>
-                <a href="https://vallinder.se">Main site</a>
                 <a href="/archive/">Archive</a>
             </div>
             <p class="footer-copy">© {{ now.Year }} Aron Vallinder</p>

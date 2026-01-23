@@ -1,22 +1,20 @@
 {{ define "main" }}
-{{ range (where .Site.RegularPages "Section" "musings").ByDate.Reverse }}
+<div class="content about-content">
+    {{ .Content }}
+</div>
+
+<h2>Recent Musings</h2>
+{{ range first 3 (where .Site.RegularPages "Section" "musings").ByDate.Reverse }}
 <article class="home-post">
     <header>
         <div class="post-meta">
             <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
             <span class="reading-time">{{ math.Round (div (countwords .Content) 200.0) }} min read</span>
         </div>
-        <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-        {{ with .Params.tags }}
-        <div class="tags">
-            {{ range . }}<a href="/tags/{{ . | urlize }}/" class="tag">{{ . }}</a>{{ end }}
-        </div>
-        {{ end }}
+        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
     </header>
-    <div class="content">
-        {{ .Content }}
-    </div>
+    <p class="post-excerpt">{{ .Summary | truncate 200 }}</p>
 </article>
-<hr class="post-divider">
 {{ end }}
+<p class="view-all"><a href="/musings/">View all musings →</a></p>
 {{ end }}
