@@ -128,12 +128,10 @@ body {
 
 .search-wrapper {
     position: relative;
-    flex: 1;
-    max-width: 180px;
 }
 
 #search-input {
-    width: 100%;
+    width: 120px;
     padding: 0.4rem 0.6rem;
     font-size: 0.9rem;
     font-family: inherit;
@@ -141,6 +139,7 @@ body {
     border-radius: 4px;
     background: var(--container-bg);
     color: var(--text);
+    transition: width 0.3s ease;
 }
 
 #search-input::placeholder {
@@ -150,6 +149,7 @@ body {
 #search-input:focus {
     outline: none;
     border-color: var(--link);
+    width: 220px;
 }
 
 #search-results {
