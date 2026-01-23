@@ -107,6 +107,12 @@ body {
     color: var(--link);
 }
 
+.nav-links a.active {
+    color: var(--link);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
 /* Site header - single line with title, search, dark toggle */
 .site-header {
     display: flex;
