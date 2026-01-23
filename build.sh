@@ -3,7 +3,7 @@
 
 OBSIDIAN_WEBSITE="/Users/aron/Obsidian/Notes/Website"
 HUGO_DIR="/Users/aron/blog"
-POSTS_DIR="$HUGO_DIR/content/musings"
+POSTS_DIR="$HUGO_DIR/content/blog"
 PAGES_DIR="$HUGO_DIR/content"
 
 # Clean and recreate posts directory
@@ -39,10 +39,10 @@ for file in "$OBSIDIAN_WEBSITE"/*.md; do
     fi
 done
 
-# Create musings index page
+# Create blog index page
 cat > "$POSTS_DIR/_index.md" << 'EOF'
 ---
-title: "Musings"
+title: "Blog"
 ---
 EOF
 
@@ -88,7 +88,7 @@ for file in "$OBSIDIAN_WEBSITE/Pages"/*.md; do
             cat "$file" | \
                 sed 's/\[\[Current projects\]\]/[Projects](\/projects\/)/g' | \
                 sed 's/\[\[Questions on my mind\]\]/[Questions on my mind](\/questions\/)/g' | \
-                sed 's/\[\[Musings\]\]/[Musings](\/musings\/)/g' | \
+                sed 's/\[\[Musings\]\]/[Blog](\/blog\/)/g' | \
                 sed "s/\[\[Papers I've written\]\]/[Papers](\/papers\/)/g" | \
                 sed -E 's/\[\[([^]|]+)\|([^]]+)\]\]/\2/g; s/\[\[([^]]+)\]\]/\1/g'
         } > "$output_file"

@@ -8,5 +8,5 @@ I'm a philosopher by training, with a background in epistemology (formal and soc
 
 - [Projects](/projects/) 
 - [Questions on my mind](/questions/)
-- [Musings](/musings/)
+- [Blog](/blog/)
 - [Papers](/papers/)

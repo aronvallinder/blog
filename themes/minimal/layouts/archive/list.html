@@ -1,7 +1,7 @@
 {{ define "main" }}
 <h1>{{ .Title }}</h1>
 
-{{ $pages := where .Site.RegularPages "Section" "musings" }}
+{{ $pages := where .Site.RegularPages "Section" "blog" }}
 {{ range $pages.GroupByDate "2006" }}
 <h2 class="archive-year">{{ .Key }}</h2>
 <ul class="archive-list">

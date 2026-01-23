@@ -111,16 +111,6 @@ body {
     margin-bottom: 3rem;
 }
 
-.about-content p:first-of-type::first-letter {
-    font-family: 'Spectral', serif;
-    font-size: 3.5em;
-    float: left;
-    line-height: 0.8;
-    margin-right: 0.1em;
-    margin-top: 0.1em;
-    color: var(--link);
-}
-
 .post-excerpt {
     color: var(--text-muted);
     margin-top: 0.5rem;
@@ -231,8 +221,8 @@ article header h1 {
     line-height: 1.9;
 }
 
-/* Drop cap */
-.content > p:first-of-type::first-letter {
+/* Drop cap - only on blog posts */
+.blog-post .content > p:first-of-type::first-letter {
     font-family: 'Spectral', serif;
     font-size: 3.5em;
     float: left;
