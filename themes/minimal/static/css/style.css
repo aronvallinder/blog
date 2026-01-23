@@ -16,13 +16,22 @@
 
 /* Dark mode */
 [data-theme="dark"] {
-    --bg: #1a1a1a;
-    --container-bg: #242424;
+    --bg: #121212;
+    --container-bg: #121212;
     --text: #e0e0e0;
     --text-muted: #999;
-    --link: hsl(var(--accent-h), 70%, 60%);
-    --link-hover: hsl(var(--accent-h), 70%, 70%);
-    --border: #3a3a3a;
+    --link: hsl(var(--accent-h), 80%, 65%);
+    --link-hover: hsl(var(--accent-h), 80%, 75%);
+    --border: #333;
+}
+
+[data-theme="dark"] .container {
+    box-shadow: none;
+}
+
+[data-theme="dark"] #search-results {
+    box-shadow: none;
+    border-color: var(--border);
 }
 
 * {
@@ -45,8 +54,8 @@
 
 body {
     font-family: 'Lato', sans-serif;
-    font-size: 17px;
-    line-height: 1.9;
+    font-size: 15px;
+    line-height: 1.8;
     color: var(--text);
     background: var(--bg);
     -webkit-font-smoothing: antialiased;
