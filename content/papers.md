@@ -5,6 +5,7 @@ title: "Papers"
 
 - [Cultural Evolution of Cooperation Among LLM Agents](https://arxiv.org/abs/2412.10270).
 	Preprint (w/ Edward Hughes)
+	
 - [Longtermism and Cultural Evolution](https://vallinder.se/Longtermism%20and%20Cultural%20Evolution.pdf).  
     forthcoming in Jacob Barrett, Hilary Greaves, and David Thorstad (eds.), _Essays in Longtermism_. Oxford University Press.
 - [The Evidentialist's Wager](https://vallinder.se/wager.pdf).  
