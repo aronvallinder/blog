@@ -412,9 +412,7 @@ li {
 }
 
 blockquote {
-    font-family: 'Spectral', serif;
     font-style: italic;
-    font-size: 1.1em;
     border-left: 3px solid var(--link);
     padding-left: 1.25rem;
     margin: 2rem 0;
