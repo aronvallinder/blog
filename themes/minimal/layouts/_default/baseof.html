@@ -7,13 +7,31 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+    <div class="progress-bar" id="progress"></div>
     <div class="container">
         <nav class="site-nav">
-            <a href="/">{{ .Site.Title }}</a>
+            <a href="/" class="site-title">{{ .Site.Title }}</a>
+            <p class="site-tagline">Notes on AI, cooperation, and cultural evolution</p>
         </nav>
         <main>
             {{ block "main" . }}{{ end }}
         </main>
+        <footer class="site-footer">
+            <div class="footer-links">
+                <a href="mailto:vallinder@gmail.com">Email</a>
+                <a href="https://vallinder.se">Main site</a>
+                <a href="/archive/">Archive</a>
+            </div>
+            <p class="footer-copy">© {{ now.Year }} Aron Vallinder</p>
+        </footer>
     </div>
+    <script>
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progress').style.width = scrolled + '%';
+        });
+    </script>
 </body>
 </html>

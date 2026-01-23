@@ -1,0 +1,16 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+
+{{ $pages := where .Site.RegularPages "Section" "musings" }}
+{{ range $pages.GroupByDate "2006" }}
+<h2 class="archive-year">{{ .Key }}</h2>
+<ul class="archive-list">
+    {{ range .Pages.ByDate.Reverse }}
+    <li>
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2" }}</time>
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </li>
+    {{ end }}
+</ul>
+{{ end }}
+{{ end }}

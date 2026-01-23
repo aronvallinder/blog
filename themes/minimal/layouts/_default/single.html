@@ -6,10 +6,28 @@
             <span class="reading-time">{{ math.Round (div (countwords .Content) 200.0) }} min read</span>
         </div>
         <h1>{{ .Title }}</h1>
+        {{ with .Params.tags }}
+        <div class="tags">
+            {{ range . }}<a href="/tags/{{ . | urlize }}/" class="tag">{{ . }}</a>{{ end }}
+        </div>
+        {{ end }}
     </header>
     <div class="content">
         {{ .Content }}
     </div>
+
+    {{ $related := .Site.RegularPages.Related . | first 3 }}
+    {{ with $related }}
+    <div class="related-posts">
+        <h3>Related Posts</h3>
+        <ul>
+            {{ range . }}
+            <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+            {{ end }}
+        </ul>
+    </div>
+    {{ end }}
+
     <footer class="post-footer">
         <a href="/">← All posts</a>
     </footer>

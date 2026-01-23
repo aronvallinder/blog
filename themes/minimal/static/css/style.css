@@ -5,7 +5,8 @@
     --accent-s: 100%;
     --accent-l: 41%;
 
-    --bg: hsl(var(--accent-h), 20%, 97%);
+    --bg: hsl(var(--accent-h), 15%, 94%);
+    --container-bg: hsl(var(--accent-h), 20%, 98%);
     --text: #222;
     --text-muted: #666;
     --link: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
@@ -13,11 +14,22 @@
     --border: #e5e5e5;
 }
 
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* Reading progress bar */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: var(--link);
+    z-index: 1000;
+    transition: width 0.1s ease-out;
 }
 
 body {
@@ -29,23 +41,59 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-.container {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 3rem 2rem;
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
+.container {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 3rem 3rem;
+    background: var(--container-bg);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06);
+    border-radius: 4px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Site header */
 .site-nav {
     margin-bottom: 2.5rem;
-    padding-bottom: 1rem;
+    padding-bottom: 1.5rem;
     border-bottom: 1px solid var(--border);
 }
 
-.site-nav a {
+.site-nav a.site-title {
     color: var(--link);
     text-decoration: none;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
+    background-image: none;
+    display: block;
+}
+
+.site-nav a.site-title::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: var(--link);
+    margin-top: 0.5rem;
+    border-radius: 2px;
+}
+
+.site-tagline {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-top: 0.75rem;
+    line-height: 1.5;
 }
 
 h1 {
@@ -55,6 +103,11 @@ h1 {
     margin-bottom: 1.5rem;
     color: var(--text);
     line-height: 1.3;
+}
+
+/* Larger titles on homepage */
+.home-post h1 {
+    font-size: 36px;
 }
 
 h2 {
@@ -92,13 +145,13 @@ p {
     margin-bottom: 1.25em;
 }
 
-/* Post meta styling */
+/* Post meta styling - small caps */
 .post-meta {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
     margin-bottom: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    font-variant: small-caps;
+    letter-spacing: 0.03em;
 }
 
 .reading-time {
@@ -128,6 +181,30 @@ article header h1 {
     margin-right: 0.1em;
     margin-top: 0.1em;
     color: var(--link);
+}
+
+/* Pull quote */
+.pull-quote, blockquote.pull {
+    font-family: 'Spectral', serif;
+    font-size: 1.4em;
+    font-weight: 500;
+    text-align: center;
+    border: none;
+    padding: 1.5rem 2rem;
+    margin: 2.5rem 0;
+    color: var(--text);
+    position: relative;
+}
+
+.pull-quote::before, blockquote.pull::before {
+    content: '"';
+    font-size: 3em;
+    color: var(--link);
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+    left: 0.5rem;
+    line-height: 1;
 }
 
 .post-list {
@@ -205,6 +282,28 @@ em {
     font-style: italic;
 }
 
+/* Tags */
+.tags {
+    margin-top: 1rem;
+}
+
+.tag {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    background: rgba(0,0,0,0.04);
+    padding: 0.2em 0.6em;
+    border-radius: 3px;
+    margin-right: 0.4rem;
+    margin-bottom: 0.4rem;
+    background-image: none;
+}
+
+.tag:hover {
+    background: rgba(0,0,0,0.08);
+    color: var(--text);
+}
+
 /* Post divider for homepage */
 .post-divider {
     border: none;
@@ -225,6 +324,39 @@ article header h1 a:hover {
     color: var(--link);
 }
 
+/* Related posts */
+.related-posts {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+}
+
+.related-posts h3 {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.related-posts ul {
+    list-style: none;
+    padding: 0;
+}
+
+.related-posts li {
+    margin-bottom: 0.5rem;
+}
+
+.related-posts a {
+    background-image: none;
+}
+
+.related-posts a:hover {
+    text-decoration: underline;
+}
+
 /* Post footer */
 .post-footer {
     margin-top: 4rem;
@@ -241,6 +373,73 @@ article header h1 a:hover {
     text-decoration: underline;
 }
 
+/* Site footer */
+.site-footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.site-footer a {
+    background-image: none;
+}
+
+.site-footer a:hover {
+    text-decoration: underline;
+}
+
+.footer-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.footer-copy {
+    font-size: 0.85rem;
+}
+
+/* Archive page */
+.archive-year {
+    font-family: 'Spectral', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+
+.archive-year:first-of-type {
+    margin-top: 0;
+}
+
+.archive-list {
+    list-style: none;
+    padding: 0;
+}
+
+.archive-list li {
+    margin-bottom: 0.6rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.archive-list time {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+    width: 6rem;
+}
+
+.archive-list a {
+    background-image: none;
+}
+
+.archive-list a:hover {
+    text-decoration: underline;
+}
 
 @media (max-width: 600px) {
     body {
@@ -251,11 +450,28 @@ article header h1 a:hover {
         font-size: 26px;
     }
 
+    .home-post h1 {
+        font-size: 28px;
+    }
+
     .container {
+        margin: 0;
         padding: 2rem 1.25rem;
+        border-radius: 0;
+        box-shadow: none;
     }
 
     .content > p:first-of-type::first-letter {
         font-size: 3em;
+    }
+
+    .pull-quote, blockquote.pull {
+        font-size: 1.2em;
+        padding: 1rem;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+        gap: 1rem;
     }
 }

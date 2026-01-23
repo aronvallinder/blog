@@ -1,12 +1,17 @@
 {{ define "main" }}
 {{ range (where .Site.RegularPages "Section" "musings").ByDate.Reverse }}
-<article>
+<article class="home-post">
     <header>
         <div class="post-meta">
             <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
             <span class="reading-time">{{ math.Round (div (countwords .Content) 200.0) }} min read</span>
         </div>
         <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+        {{ with .Params.tags }}
+        <div class="tags">
+            {{ range . }}<a href="/tags/{{ . | urlize }}/" class="tag">{{ . }}</a>{{ end }}
+        </div>
+        {{ end }}
     </header>
     <div class="content">
         {{ .Content }}
