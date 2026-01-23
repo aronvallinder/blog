@@ -205,6 +205,26 @@ em {
     font-style: italic;
 }
 
+/* Post divider for homepage */
+.post-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 4rem 0;
+}
+
+.post-divider:last-of-type {
+    display: none;
+}
+
+article header h1 a {
+    color: var(--text);
+    background-image: none;
+}
+
+article header h1 a:hover {
+    color: var(--link);
+}
+
 /* Post footer */
 .post-footer {
     margin-top: 4rem;
