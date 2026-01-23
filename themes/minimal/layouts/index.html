@@ -1,5 +1,11 @@
 {{ define "main" }}
-<div class="content">
-    {{ .Content }}
-</div>
+<h1>Musings</h1>
+<ul class="post-list">
+    {{ range (where .Site.RegularPages "Section" "musings").ByDate.Reverse }}
+    <li>
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </li>
+    {{ end }}
+</ul>
 {{ end }}
