@@ -413,16 +413,6 @@ article header h1 {
     margin-bottom: 0.25rem;
 }
 
-.blog-post .content > p:first-of-type::first-letter {
-    font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', serif;
-    font-size: 3.4em;
-    float: left;
-    line-height: 0.8;
-    margin-right: 0.08em;
-    margin-top: 0.08em;
-    color: var(--accent);
-    font-weight: 500;
-}
 
 /* ============================================
    Blog List
