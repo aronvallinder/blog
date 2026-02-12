@@ -1,24 +1,14 @@
 {{ define "main" }}
-<h1>Blog</h1>
+<h1>Notes</h1>
 
 {{ range .Pages.ByDate.Reverse }}
-<article class="home-post">
-    <header>
-        <div class="post-meta">
-            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
-            <span class="reading-time">{{ math.Round (div (countwords .Content) 200.0) }} min read</span>
-        </div>
-        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-        {{ with .Params.tags }}
-        <div class="tags">
-            {{ range . }}<a href="/tags/{{ . | urlize }}/" class="tag">{{ . }}</a>{{ end }}
-        </div>
-        {{ end }}
-    </header>
-    <div class="content">
-        {{ .Content }}
+<article class="note-entry">
+    <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    <div class="post-meta">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+        <span class="reading-time">{{ math.Round (div (countwords .Content) 200.0) }} min read</span>
     </div>
+    <p class="note-excerpt">{{ .Summary | plainify | truncate 180 }}</p>
 </article>
-<hr class="post-divider">
 {{ end }}
 {{ end }}

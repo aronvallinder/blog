@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ if .Title }}{{ .Title }} - {{ end }}{{ .Site.Title }}</title>
+    <title>{{ if and .Title (not .IsHome) }}{{ .Title }} - {{ end }}{{ .Site.Title }}</title>
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="alternate" type="application/rss+xml" title="RSS" href="/index.xml">
     <script>
-        // Apply saved theme immediately to prevent flash
         (function() {
             const saved = localStorage.getItem('theme');
             if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -20,36 +18,31 @@
 <body>
     <div class="container">
         <header class="site-header">
-            <a href="/" class="site-title">
-                <svg class="site-icon" width="24" height="20" viewBox="0 0 24 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-                    <circle cx="9" cy="10" r="7"/>
-                    <circle cx="15" cy="10" r="7"/>
-                </svg>
-                Aron Vallinder
-            </a>
-            <div class="header-controls">
-                <input type="text" id="search-input" placeholder="search" autocomplete="off">
-                <div id="search-results"></div>
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">dark</button>
+            <a href="/" class="site-title">Aron Vallinder</a>
+            <div class="header-row">
+                <nav class="site-nav">
+                    <a href="/"{{ if .IsHome }} class="active"{{ end }}>About</a>
+                    <a href="/papers/"{{ if eq .RelPermalink "/papers/" }} class="active"{{ end }}>Papers</a>
+                    <a href="/blog/"{{ if or (eq .Section "blog") (eq .RelPermalink "/blog/") }} class="active"{{ end }}>Notes</a>
+                </nav>
+                <div class="header-controls">
+                    <input type="text" id="search-input" placeholder="search" autocomplete="off">
+                    <div id="search-results"></div>
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">dark</button>
+                </div>
             </div>
         </header>
-        <nav class="site-nav">
-            <div class="nav-links">
-                <a href="/"{{ if .IsHome }} class="active"{{ end }}>About</a>
-                <a href="/papers/"{{ if eq .RelPermalink "/papers/" }} class="active"{{ end }}>Papers</a>
-                <a href="/blog/"{{ if or (eq .Section "blog") (eq .RelPermalink "/blog/") }} class="active"{{ end }}>Blog</a>
-            </div>
-        </nav>
         <main>
             {{ block "main" . }}{{ end }}
         </main>
         <footer class="site-footer">
             <div class="footer-links">
                 <a href="mailto:vallinder@gmail.com">Email</a>
-                <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" rel="noopener">Google Scholar</a>
+                <a href="https://scholar.google.com/citations?user=f1rBCmgAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+                <a href="https://x.com/aronvallinder" target="_blank" rel="noopener">Twitter</a>
                 <a href="/index.xml">RSS</a>
             </div>
-            <p class="footer-copy">© {{ now.Year }} Aron Vallinder</p>
+            <p class="footer-copy">&copy; {{ now.Year }} Aron Vallinder</p>
         </footer>
     </div>
     <script>
@@ -113,9 +106,8 @@
             }
         });
 
-        // Hide search results when clicking outside
         document.addEventListener('click', function(e) {
-            if (!e.target.closest('.search-wrapper')) {
+            if (!e.target.closest('.header-controls')) {
                 searchResults.style.display = 'none';
             }
         });

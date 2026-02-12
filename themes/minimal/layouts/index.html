@@ -2,4 +2,20 @@
 <div class="content about-content">
     {{ .Content }}
 </div>
+
+{{ $posts := first 3 (where .Site.RegularPages "Section" "blog") }}
+{{ with $posts }}
+<section class="home-section">
+    <h2 class="section-heading">Recent Notes</h2>
+    <ul class="home-posts">
+        {{ range . }}
+        <li>
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2006" }}</time>
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </li>
+        {{ end }}
+    </ul>
+    <p class="section-more"><a href="/blog/">All notes &rarr;</a></p>
+</section>
+{{ end }}
 {{ end }}
