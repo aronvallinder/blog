@@ -6,7 +6,7 @@ title: "Papers"
 - [Cultural Evolution of Cooperation Among LLM Agents](https://arxiv.org/abs/2412.10270).  
 	Preprint (w/ Edward Hughes)
 - [Longtermism and Cultural Evolution](https://vallinder.se/Longtermism%20and%20Cultural%20Evolution.pdf).  
-    n Jacob Barrett, Hilary Greaves, and David Thorstad (eds.), _Essays in Longtermism_. Oxford University Press.
+    In Jacob Barrett, Hilary Greaves, and David Thorstad (eds.), _Essays in Longtermism_. Oxford University Press.
 - [The Evidentialist's Wager](https://vallinder.se/wager.pdf).  
     _The Journal of Philosophy_ 118 (6):320-342. (w/ Will MacAskill, Caspar Oesterheld, Carl Shulman, and Johannes Treutlein).
 - [Imprecise Bayesianism and Global Belief Inertia](https://academic.oup.com/bjps/advance-article/doi/10.1093/bjps/axx033/4091081).  
