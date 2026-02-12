@@ -55,7 +55,7 @@ body {
    ============================================ */
 
 .container {
-    max-width: 700px;
+    max-width: 740px;
     margin: 0 auto;
     padding: 2.5rem 2rem 4rem;
     animation: fadeIn 0.4s ease-out;
@@ -298,7 +298,8 @@ em {
    ============================================ */
 
 .content {
-    line-height: 1.8;
+    font-size: 1.06rem;
+    line-height: 1.85;
 }
 
 .content a {
@@ -624,12 +625,18 @@ tr:hover td {
    ============================================ */
 
 .note-entry {
-    margin-bottom: 2.25rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.note-entry:last-child {
+    border-bottom: none;
 }
 
 .note-entry h2 {
     font-family: 'Inter', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: 600;
     margin-top: 0;
     margin-bottom: 0.25rem;
@@ -652,8 +659,8 @@ tr:hover td {
 
 .note-excerpt {
     color: var(--text-secondary);
-    font-size: 0.92rem;
-    line-height: 1.6;
+    font-size: 0.95rem;
+    line-height: 1.65;
     margin-bottom: 0;
 }
 
