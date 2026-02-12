@@ -43,6 +43,7 @@
 body {
     font-family: 'Inter', -apple-system, sans-serif;
     font-size: 16px;
+    font-weight: 300;
     line-height: 1.7;
     color: var(--text);
     background: var(--bg);
@@ -57,7 +58,7 @@ body {
 .container {
     max-width: 740px;
     margin: 0 auto;
-    padding: 2.5rem 2rem 4rem;
+    padding: 3.5rem 2rem 4rem;
     animation: fadeIn 0.4s ease-out;
 }
 
@@ -393,11 +394,11 @@ em {
    ============================================ */
 
 .post-meta {
-    font-size: 0.82rem;
+    font-size: 0.78rem;
+    font-weight: 300;
     color: var(--text-muted);
     margin-bottom: 0.5rem;
-    font-variant: small-caps;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.02em;
 }
 
 .reading-time {
