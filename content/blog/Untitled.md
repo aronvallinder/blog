@@ -1,5 +1,17 @@
 ---
 title: "Untitled"
-date: 2026-02-16T10:22:43
+date: 2026-02-16T10:22:50
 ---
 
+
+In [my paper with Ed Hughes](https://arxiv.org/abs/2412.10270), we studied the cultural evolution of cooperation under indirect reciprocity in LLMs. Indirect reciprocity is a mechanism for cooperation that relies on reputation: by cooperating with those of good reputation (and refraining from cooperating with those of bad reputation), you acquire a good reputation yourself, making others more likely to cooperate with you in the future. 
+
+In our setup, reputation was more or less given to agents. But of course, this may not be a realistic model of what actual deployment will look like, because ... A new paper by [Zhu et al. (2026)](http://arxiv.org/abs/2602.07777) addresses this by implementing reputation via decentralized gossip. Each agent has two LLM-powered modules: a gossip module and an action module. When acting as a donor, the action module selects cooperation or defection based on the agent's private information and the public gossip log. When acting as a witness to an action, the gossip module generates a public message consisting of one of five hierarchical tones (praising, neutral, mocking, complaint, criticism) along with an open-ended textual evaluation. Both modules also include a reflection step where agents reason about how to maximize long-term payoffs. 
+
+They find that all models studied achieve substantially higher rates of cooperation when they gossip than when they don't. Indeed, without gossip (and so without any information about the behavior of other agents on which to base one's decisions), no reasoning model cooperates at all, which is the game-theoretically rational outcome.
+
+An earlier paper by [Piedrahita et al. 2025](https://arxiv.org/abs/2506.23276) found that reasoning models failed to cooperate in a public goods game while traditional chatbots succeeded, framing this as evidence that enhanced reasoning undermines cooperation. But it always seemed more plausible to me that reasoning models were simply better at identifying the game-theoretically rational strategy, which in their setup was to free-ride. The Zhu et al. paper supports this reading. Without gossip, defection is the unique equilibrium, and no reasoning model cooperates. With gossip, cooperation becomes an equilibrium, and reasoning models cooperate—in some cases perfectly. They also defect in finite-horizon games even with gossip, which again is the correct equilibrium. So reasoning models aren't necessarily more selfish, but rather more incentive-aligned. 
+
+The paper also tests robustness. When an exploitative agent (always defecting, never sharing gossip) is introduced, other agents speak negatively about them and maintain high cooperation among themselves while refusing to cooperate with the exploiter. And even when gossip is occasionally untruthful, agents  maintain cooperation by cross-validating multiple gossip reports against their own experience. 
+
+I think this paper really demonstrates the promise of decentralized reputation as a way of incentivizing cooperation among AI agents. But "decentralized" doesn't mean "spontaneous": the gossip protocol is imposed by the framework, not invented by the agents. So the paper still highlights the need for carefully designed [agent infrastructure](https://arxiv.org/abs/2501.10114). 
