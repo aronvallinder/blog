@@ -1,6 +1,6 @@
 ---
 title: "Gossip Supports Cooperation in LLM Agents"
-date: 2026-02-16T10:24:36
+date: 2026-02-16T10:25:25
 ---
 
 
@@ -10,7 +10,7 @@ In our setup, reputation was more or less given to agents. But in real deploymen
 
 They find that all models studied achieve substantially higher rates of cooperation when they gossip than when they don't. Indeed, without gossip (and so without any information about the behavior of other agents on which to base one's decisions), no reasoning model cooperates at all, which is the game-theoretically rational outcome.
 
-An earlier paper by [Piedrahita et al. 2025](https://arxiv.org/abs/2506.23276) found that reasoning models failed to cooperate in a public goods game while traditional chatbots succeeded, framing this as evidence that enhanced reasoning undermines cooperation. But it always seemed more plausible to me that reasoning models were simply better at identifying the game-theoretically rational strategy, which in their setup was to free-ride. The Zhu et al. paper supports this reading. Without gossip, defection is the unique equilibrium, and no reasoning model cooperates. With gossip, cooperation becomes an equilibrium, and reasoning models cooperate—in some cases perfectly. They also defect in finite-horizon games even with gossip, which again is the correct equilibrium. So reasoning models aren't necessarily more selfish, but rather more incentive-aligned. 
+An earlier paper by [Piedrahita et al. (2025)](https://arxiv.org/abs/2506.23276) found that reasoning models failed to cooperate in a public goods game while traditional chatbots succeeded, framing this as evidence that enhanced reasoning undermines cooperation. But it always seemed more plausible to me that reasoning models were simply better at identifying the game-theoretically rational strategy, which in their setup was to free-ride. The Zhu et al. paper supports this reading. Without gossip, defection is the unique equilibrium, and no reasoning model cooperates. With gossip, cooperation becomes an equilibrium, and reasoning models cooperate—in some cases perfectly. They also defect in finite-horizon games even with gossip, which again is the correct equilibrium. So reasoning models aren't necessarily more selfish, but rather more incentive-aligned. 
 
 The paper also tests robustness. When an exploitative agent (always defecting, never sharing gossip) is introduced, other agents speak negatively about them and maintain high cooperation among themselves while refusing to cooperate with the exploiter. And even when gossip is occasionally untruthful, agents  maintain cooperation by cross-validating multiple gossip reports against their own experience. 
 
