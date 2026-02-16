@@ -1,12 +1,12 @@
 ---
 title: "Gossip Supports Cooperation in LLM Agents"
-date: 2026-02-16T10:22:50
+date: 2026-02-16T10:24:03
 ---
 
 
 In [my paper with Ed Hughes](https://arxiv.org/abs/2412.10270), we studied the cultural evolution of cooperation under indirect reciprocity in LLMs. Indirect reciprocity is a mechanism for cooperation that relies on reputation: by cooperating with those of good reputation (and refraining from cooperating with those of bad reputation), you acquire a good reputation yourself, making others more likely to cooperate with you in the future. 
 
-In our setup, reputation was more or less given to agents. But of course, this may not be a realistic model of what actual deployment will look like, because ... A new paper by [Zhu et al. (2026)](http://arxiv.org/abs/2602.07777) addresses this by implementing reputation via decentralized gossip. Each agent has two LLM-powered modules: a gossip module and an action module. When acting as a donor, the action module selects cooperation or defection based on the agent's private information and the public gossip log. When acting as a witness to an action, the gossip module generates a public message consisting of one of five hierarchical tones (praising, neutral, mocking, complaint, criticism) along with an open-ended textual evaluation. Both modules also include a reflection step where agents reason about how to maximize long-term payoffs. 
+In our setup, reputation was more or less given to agents. But in real deployment, there  A new paper by [Zhu et al. (2026)](http://arxiv.org/abs/2602.07777) addresses this by implementing reputation via decentralized gossip. Each agent has two LLM-powered modules: a gossip module and an action module. When acting as a donor, the action module selects cooperation or defection based on the agent's private information and the public gossip log. When acting as a witness to an action, the gossip module generates a public message consisting of one of five hierarchical tones (praising, neutral, mocking, complaint, criticism) along with an open-ended textual evaluation. Both modules also include a reflection step where agents reason about how to maximize long-term payoffs. 
 
 They find that all models studied achieve substantially higher rates of cooperation when they gossip than when they don't. Indeed, without gossip (and so without any information about the behavior of other agents on which to base one's decisions), no reasoning model cooperates at all, which is the game-theoretically rational outcome.
 
