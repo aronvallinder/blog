@@ -1,5 +1,5 @@
 ---
-title: "Untitled"
+title: "Gossip Supports Cooperation in LLM Agents"
 date: 2026-02-16T10:22:50
 ---
 
