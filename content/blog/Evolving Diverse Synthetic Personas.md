@@ -1,5 +1,5 @@
 ---
-title: "How to Evolve Diverse Synthetic Personas"
+title: "Evolving Diverse Synthetic Personas"
 date: 2026-02-17T09:19:20
 ---
 
