@@ -1,5 +1,5 @@
 ---
-title: "Untitled"
+title: "Does Cultural Evolution Matter for Reasoning Models?"
 date: 2026-02-19T15:02:11
 ---
 
