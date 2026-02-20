@@ -1,5 +1,5 @@
 ---
-title: "Virtual Agent Economies Write-Up"
+title: "Virtual Agent Economies"
 date: 2026-02-20T18:53:57
 ---
 
