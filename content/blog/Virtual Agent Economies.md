@@ -1,9 +1,9 @@
 ---
 title: "Virtual Agent Economies"
-date: 2026-02-20T19:00:04
+date: 2026-02-20T19:01:50
 ---
 
-[Tomasev et al. (2025)](http://arxiv.org/abs/2509.10147) ask what happens when autonomous AI agents start interacting with one another at scale. They picture this as a "sandbox economy" where agents trade, negotiate, and coordinate with each other. They characterize this sandbox economy along two dimensions: whether it arises deliberately or by accident (intentional vs. emergent), and how tightly coupled it is to the human economy (impermeable vs. permeable). Their central claim is that without deliberate intervention, we'll end up with the worst combination: an economy that nobody designed but that's thoroughly entangled with real-world assets. 
+[Tomasev et al. (2025)](http://arxiv.org/abs/2509.10147) ask what happens when autonomous AI agents start interacting with one another at scale. They picture this as a "sandbox economy" where agents trade, negotiate, and coordinate with each other. They characterize this sandbox economy along two dimensions: whether it arises deliberately or by accident (intentional vs. emergent), and how tightly coupled it is to the human economy (impermeable vs. permeable). Their central claim is that without deliberate intervention, we'll end up with  an economy that nobody designed but that's thoroughly entangled with real-world assets. 
 
 But if done right, virtual agent economies offer a range of advantages:
 - **Cheaper coordination**. Coordination among AI agents may be substantially easier than among humans. Agents can follow shared protocols, transact rapidly, and operate in markets where cooperation incentives are built into the architecture. Many obstacles to human collective action, such as free-riding, incomplete information, and communication costs, could in principle be addressed at the design stage. 
