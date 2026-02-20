@@ -1,6 +1,6 @@
 ---
 title: "Virtual Agent Economies"
-date: 2026-02-20T18:58:34
+date: 2026-02-20T18:58:36
 ---
 
 [Tomasev et al. (2025)](http://arxiv.org/abs/2509.10147) ask what happens when autonomous AI agents start interacting with one another at scale. They picture this as a "sandbox economy" where agents trade, negotiate, and coordinate with each other. They characterize this sandbox economy along two dimensions: whether it arises deliberately or by accident (intentional vs. emergent), and how tightly coupled it is to the human economy (impermeable vs. permeable). Their central claim is that without deliberate intervention, we'll end up with the worst combination: an economy that nobody designed but that's thoroughly entangled with real-world assets. 
@@ -8,7 +8,7 @@ date: 2026-02-20T18:58:34
 But if done right, virtual agent economies offer a range of advantages:
 - **Cheaper coordination**. Coordination among AI agents may be substantially easier than among humans. Agents can follow shared protocols, transact rapidly, and operate in markets where cooperation incentives are built into the architecture. Many obstacles to human collective action, such as free-riding, incomplete information, and communication costs, could in principle be addressed at the design stage. 
 - **New micro-markets**. Agent-to-agent markets could make it viable to trade services that currently aren't worth the transaction costs of human-to-human interaction. 
-- Institutional experimentation. An insulated sandbox economy can serve as a policy laboratory in which different arrangements can be tested and iterated on before anyone considers integrating them into human institutions.  
+- **Institutional experimentation**. An insulated sandbox economy can serve as a policy laboratory in which different arrangements can be tested and iterated on before anyone considers integrating them into human institutions.  
 
 Though as you might expect, virtual agent economies aren't risk-free:
 - Systemic instability: High-frequency interactions between agents create tightly coupled feedback loops prone to cascading failures, like the 2010 flash crash. 
