@@ -1,5 +1,5 @@
 ---
-title: "AI assistants will treat user attention as a costly resource"
+title: "AI assistants will treat user attention as costly"
 date: 2026-02-23T15:28:00
 ---
 
